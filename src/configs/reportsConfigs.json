@@ -1,0 +1,14 @@
+{
+  "dailyTurnoverByBrand": {
+    "class": "DailyTurnOverPerBrandReport",
+    "configs": {
+      "delimiter": ","
+    }
+  },
+  "dailyTurnover": {
+    "class": "DailyTurnOverReport",
+    "configs": {
+      "delimiter": ","
+    }
+  }
+}

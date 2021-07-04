@@ -1,0 +1,7 @@
+#ignore phpstomr ide files
+.idea
+/.idea
+#ignore composer packages
+/vendor
+#ignore report gerating directory
+/generatedReports
