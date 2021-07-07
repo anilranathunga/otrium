@@ -81,7 +81,7 @@ class Row
 
     public function removeTax($value): string
     {
-        $value>0 ? ($value -= ($value * (Config::TAX_RATE/100))): 0;
+        $value>0 ? ($value -= ($value * (Config::TAX_RATE / (100 + Config::TAX_RATE)))): 0;
         return number_format($value, 2);
     }
 

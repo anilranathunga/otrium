@@ -5,6 +5,7 @@ namespace Tests\utils;
 
 
 use PHPUnit\Framework\TestCase;
+use src\configs\Config;
 use src\utils\BaseModel;
 use src\utils\reports\Row;
 use src\models\Gmv;
@@ -17,17 +18,17 @@ class RowTest   extends TestCase
     {
         //$gmv = new Gmv();
         $dataBaseRecordArray = [
-            "brand_a" => 100,
-            "brand_b" => 100,
-            "brand_c" => 100
+            "brand_a" => 100+Config::TAX_RATE,
+            "brand_b" => 100+Config::TAX_RATE,
+            "brand_c" => 100+Config::TAX_RATE
         ];
         $this->row = new Row($dataBaseRecordArray);
     }
 
     public function test_it_calculates_tax()
     {
-        $amountWithTax = 100;
-        $amountWithoutTax = 79;
+        $amountWithTax = 100+Config::TAX_RATE;
+        $amountWithoutTax = 100;
         $result = $this->row->removeTax($amountWithTax);
         $this->assertEquals($amountWithoutTax,$result);
     }
@@ -39,9 +40,9 @@ class RowTest   extends TestCase
         $processedData = $this->row->getData();
 
         $expectedData = [
-            "brand_a" => 79,
-            "brand_b" => 100,
-            "brand_c" => 100
+            "brand_a" => 100,
+            "brand_b" => 100+Config::TAX_RATE,
+            "brand_c" => 100+Config::TAX_RATE
         ];
 
         $this->assertEquals($processedData,$expectedData);
@@ -54,9 +55,9 @@ class RowTest   extends TestCase
         $processedData = $this->row->getData();
 
         $expectedData = [
-            "brand_a" => 100,
-            "brand_b" => 79,
-            "brand_c" => 79
+            "brand_a" => 100+Config::TAX_RATE,
+            "brand_b" => 100,
+            "brand_c" => 100
         ];
 
         $this->assertEquals($processedData,$expectedData);
