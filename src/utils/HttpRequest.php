@@ -4,8 +4,6 @@
 namespace src\utils;
 
 
-use http\Encoding\Stream\Deflate;
-
 class HttpRequest
 {
 

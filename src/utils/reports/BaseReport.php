@@ -63,7 +63,7 @@ class BaseReport
             header("Content-type:text/csv");
             header('Content-Disposition: attachment; filename=' . $fileNameToDownload);
             readfile( $filePath );
-            exit();
+
         }catch (\Exception $exception){
             echo "Error on downloading file" . $exception->getMessage();
         }
