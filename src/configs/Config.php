@@ -5,7 +5,7 @@ namespace src\configs;
 class Config
 {
     //deployment related configs
-    const APP_URL = "http://localhost:8888/otrium";     // remove trailing slash
+    const APP_URL = "http://localhost:8888/";     // remove trailing slash
 
     const DB_HOST = "localhost";
     const DB_PORT = 8889;

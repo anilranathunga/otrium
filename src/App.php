@@ -33,6 +33,7 @@ class App
 
                 if ($this->httpRequest->validate($rules) === true){
                     $this->generateReport();
+                    exit();
                 }else{
                     $this->redirectBack();
                 }

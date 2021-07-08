@@ -3,7 +3,6 @@
 namespace src\utils;
 
 use Exception;
-use \mysqli;
 use src\configs\Config;
 
 class Database
@@ -33,7 +32,7 @@ class Database
             return $this->connection;
         }else{
             try {
-                return new mysqli($this->host, $this->databaseUser, $this->databasePassword,$this->databaseName,$this->port);
+                return new \mysqli($this->host, $this->databaseUser, $this->databasePassword,$this->databaseName,$this->port);
             }catch (Exception $exception){
                 echo $exception->getMessage();
                 return false;
